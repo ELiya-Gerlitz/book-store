@@ -10,3 +10,4 @@ This time I did the followings:
 4)Deleted the node_modules in the Backend.
 5) git push moshe master    AND NOT git push moshe -u -f master 
 6) did not include again the url in the push command. i.e. NOT included the url after the word moshe.
+7) Did it in the CMD and NOT in the terminal.
