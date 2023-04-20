@@ -1,0 +1,13 @@
+.Footer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+}
+/* .Footer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} */

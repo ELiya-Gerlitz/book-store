@@ -1,0 +1,26 @@
+.modal-content  {
+    display: inline-block;
+ background: rgb(170, 170, 221);    
+ width: 200px;
+
+}
+.modal-content> .modal-body{
+    background: rgb(169, 169, 240); 
+    margin: 10px;   
+    border-radius: 5px;
+
+}
+.modal-content> .modal-header{
+    background: rgb(17, 17, 39); 
+    margin: 10px;   
+    border-radius: 5px;
+
+}
+
+.modal-content> .modal-footer{
+    background: rgb(17, 17, 39); 
+    margin: 10px;   
+    border-radius: 5px;
+
+}
+

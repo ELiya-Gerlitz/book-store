@@ -1,0 +1,57 @@
+.UpdateBook >.Box{
+	width: 280px;
+    height: 450px;
+}
+
+img{
+	height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  
+}
+
+/* THIS MAKES IT AS OVERLAY */
+.Container {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin: 30px;
+  }
+  
+  .imageBox {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+    z-index: 3;
+  }
+  
+  .Overlay {
+    z-index: 99;
+    margin-top: 30px;
+    /* height: 50%; */
+    width: 100%;
+    color: rgb(252, 252, 252);
+    opacity: 100%;
+    position: absolute;
+    /* transform: rotate(20deg); */
+    background-color: rgba(169, 169, 169, 0.589);
+    font-weight: bold;
+    font-size: large;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .InputFile{  /*  this input button is invisible!!!! */
+    z-index: 999;
+    margin: 30px;
+    height: 100%;
+    color: black;
+    opacity: 0%;
+    position: absolute;    
+    width: 100%;
+  }
+
+/* OVERLAY UNTIL HERE */

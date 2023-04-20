@@ -1,0 +1,277 @@
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 0:18:19
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 0:29:50
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 0:29:52
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 0:29:52
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 0:29:53
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 0:29:54
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 0:29:56
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 0:31:51
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 0:31:55
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 0:31:56
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 0:32:06
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 0:32:07
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 0:32:09
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 0:32:15
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 0:32:21
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 1:03:31
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 1:03:37
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 1:03:53
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 1:03:55
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 1:12:44
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 1:14:09
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 1:14:25
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 1:14:27
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 1:14:28
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 1:15:03
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 1:15:03
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 1:15:07
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 1:15:32
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    19.4.2023, 1:15:34
+
+    [object Object] ---------------------------
+    19.4.2023, 1:31:38
+
+    [object Object] ---------------------------
+    19.4.2023, 1:33:15
+
+    [object Object] ---------------------------
+    19.4.2023, 1:33:17
+
+    [object Object] ---------------------------
+    19.4.2023, 1:35:45
+
+    TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined ---------------------------
+    19.4.2023, 1:58:08
+
+    [object Object] ---------------------------
+    19.4.2023, 3:01:52
+
+    [object Object] ---------------------------
+    19.4.2023, 3:03:11
+
+    [object Object] ---------------------------
+    19.4.2023, 3:03:56
+
+    [object Object] ---------------------------
+    19.4.2023, 3:16:41
+
+    [object Object] ---------------------------
+    19.4.2023, 3:16:44
+
+    [object Object] ---------------------------
+    19.4.2023, 3:16:45
+
+    [object Object] ---------------------------
+    19.4.2023, 3:16:46
+
+    [object Object] ---------------------------
+    19.4.2023, 3:16:47
+
+    [object Object] ---------------------------
+    19.4.2023, 3:17:32
+
+    [object Object] ---------------------------
+    19.4.2023, 3:17:34
+
+    [object Object] ---------------------------
+    19.4.2023, 3:17:36
+
+    [object Object] ---------------------------
+    19.4.2023, 3:17:42
+
+    [object Object] ---------------------------
+    19.4.2023, 3:19:17
+
+    [object Object] ---------------------------
+    19.4.2023, 3:19:20
+
+    [object Object] ---------------------------
+    19.4.2023, 3:19:22
+
+    [object Object] ---------------------------
+    19.4.2023, 3:19:58
+
+    [object Object] ---------------------------
+    19.4.2023, 3:20:26
+
+    [object Object] ---------------------------
+    19.4.2023, 3:20:29
+
+    [object Object] ---------------------------
+    19.4.2023, 3:24:11
+
+    [object Object] ---------------------------
+    19.4.2023, 3:24:13
+
+    [object Object] ---------------------------
+    19.4.2023, 3:24:14
+
+    [object Object] ---------------------------
+    19.4.2023, 3:24:14
+
+    [object Object] ---------------------------
+    19.4.2023, 3:24:18
+
+    [object Object] ---------------------------
+    19.4.2023, 12:38:01
+
+    [object Object] ---------------------------
+    19.4.2023, 12:38:03
+
+    [object Object] ---------------------------
+    19.4.2023, 22:54:08
+
+    [object Object] ---------------------------
+    19.4.2023, 22:55:09
+
+    [object Object] ---------------------------
+    19.4.2023, 23:02:25
+
+    [object Object] ---------------------------
+    19.4.2023, 23:02:28
+
+    [object Object] ---------------------------
+    20.4.2023, 3:53:06
+
+    [object Object] ---------------------------
+    20.4.2023, 3:54:39
+
+    [object Object] ---------------------------
+    20.4.2023, 13:02:54
+
+    [object Object] ---------------------------
+    20.4.2023, 13:08:24
+
+    [object Object] ---------------------------
+    20.4.2023, 13:08:26
+
+    [object Object] ---------------------------
+    20.4.2023, 13:08:28
+
+    [object Object] ---------------------------
+    20.4.2023, 13:08:29
+
+    [object Object] ---------------------------
+    20.4.2023, 13:08:29
+
+    [object Object] ---------------------------
+    20.4.2023, 13:08:30
+
+    [object Object] ---------------------------
+    20.4.2023, 13:08:31
+
+    [object Object] ---------------------------
+    20.4.2023, 17:57:54
+
+    [object Object] ---------------------------
+    20.4.2023, 18:47:55
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\05f70529-1b8a-4168-bce4-d2ff779ce226.jpg' ---------------------------
+    20.4.2023, 20:02:42
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\9bf5f662-8a88-4e05-b8a3-ec24c1a90f33.jpg' ---------------------------
+    20.4.2023, 20:02:44
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\05f70529-1b8a-4168-bce4-d2ff779ce226.jpg' ---------------------------
+    20.4.2023, 20:02:44
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\597424f5-d37e-4e35-b79b-cc7b8e85ea13.jpeg' ---------------------------
+    20.4.2023, 20:02:44
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\05f70529-1b8a-4168-bce4-d2ff779ce226.jpg' ---------------------------
+    20.4.2023, 20:02:46
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\9bf5f662-8a88-4e05-b8a3-ec24c1a90f33.jpg' ---------------------------
+    20.4.2023, 20:02:49
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\597424f5-d37e-4e35-b79b-cc7b8e85ea13.jpeg' ---------------------------
+    20.4.2023, 20:02:49
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\597424f5-d37e-4e35-b79b-cc7b8e85ea13.jpeg' ---------------------------
+    20.4.2023, 20:02:50
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\9bf5f662-8a88-4e05-b8a3-ec24c1a90f33.jpg' ---------------------------
+    20.4.2023, 20:02:52
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\9bf5f662-8a88-4e05-b8a3-ec24c1a90f33.jpg' ---------------------------
+    20.4.2023, 20:02:52
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\9bf5f662-8a88-4e05-b8a3-ec24c1a90f33.jpg' ---------------------------
+    20.4.2023, 20:02:54
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\9bf5f662-8a88-4e05-b8a3-ec24c1a90f33.jpg' ---------------------------
+    20.4.2023, 20:03:05
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\9bf5f662-8a88-4e05-b8a3-ec24c1a90f33.jpg' ---------------------------
+    20.4.2023, 20:03:20
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\9bf5f662-8a88-4e05-b8a3-ec24c1a90f33.jpg' ---------------------------
+    20.4.2023, 20:03:21
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\9bf5f662-8a88-4e05-b8a3-ec24c1a90f33.jpg' ---------------------------
+    20.4.2023, 20:03:23
+
+    [object Object] ---------------------------
+    20.4.2023, 20:03:24
+
+    [object Object] ---------------------------
+    20.4.2023, 20:03:27

@@ -1,0 +1,21 @@
+.BookCard > img{
+	height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    justify-self: baseline;
+    
+
+}
+.Box{
+    width: 250px;
+    height: 400px;
+    overflow: auto;
+    background-image: linear-gradient(to bottom right, rgb(233, 81, 81), rgb(248, 171, 108));
+}
+.Box > * {
+  color: aliceblue;
+}
+
+
+
