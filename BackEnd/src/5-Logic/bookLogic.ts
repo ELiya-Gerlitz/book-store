@@ -6,6 +6,9 @@ import {OkPacket} from "mysql"
 import handleFiles from "../2-Utils/handleFiles";
 import cyber from "../2-Utils/cyber";
 import fs from "fs"
+import fsPromises from "fs/promises"
+import path from "path";
+import {v4 as uuid} from "uuid"
 
 // import handleFiles from "../2-Utils/handleFiles";
 
@@ -49,13 +52,52 @@ async function postOneBook(book:BookModel):Promise<BookModel>{
 
     return book
 }
+
+// Das ist nicht gut. Was fehlt? Des fetches des vorherigen Buch. (! Es nervt mich dass ich das Fehler nich verstehe!)
+// async function putBook(book: BookModel):Promise<BookModel>{
+//     const err= book.validate()
+//     if(err) throw new ValidationErrorModel(err)
+
+//     await handleFiles(book)
+
+//     const sql=`
+//     UPDATE books
+//     SET 
+//         name = "${book.name}",
+//         price = ${book.price},
+//         stock = ${book.stock},
+//         imageName = "${book.imageName}"
+//     WHERE bookId= ${book.bookId}
+//     `
+//     console.log(book.bookId+"I am in the logic after the query")
+//     console.log("this is my type........!!!! "+typeof book.bookId +"I am in the logic after the query")
+//     console.log("this is my imageName "+typeof book.imageName +"I am in the logic after the query")
+//     const info: OkPacket= await dal.execute(sql)
+//     if(info.affectedRows===0) throw new ResourceNotFoundErrorModel(book.bookId)
+//     return book
+// }
+
+
 async function putBook(book: BookModel):Promise<BookModel>{
     const err= book.validate()
     if(err) throw new ValidationErrorModel(err)
 
-    console.log("I am the book in the put"+book.imageName+ "I  am the books price" + book.price)
+    const bookToUpdate = await getOneBook(book.bookId)         
+        if(book.image){
+           const imagePath= "./src/1-Assets/images/" + bookToUpdate.imageName
 
-    await handleFiles(book)
+        //   await fsPromises.unlink(imagePath) //das ist auch gut
+          await fs.unlinkSync(imagePath)
+
+           const extension= path.extname(book.image.name)        
+           book.imageName = uuid()+ extension
+           await book.image.mv("./src/1-Assets/images/" + book.imageName)
+           delete book.image
+
+    }else if(!book.image){
+        book.imageName= bookToUpdate.imageName
+
+    }
 
     const sql=`
     UPDATE books
@@ -66,13 +108,11 @@ async function putBook(book: BookModel):Promise<BookModel>{
         imageName = "${book.imageName}"
     WHERE bookId= ${book.bookId}
     `
-    console.log(book.bookId+"I am in the logic after the query")
-    console.log("this is my type........!!!! "+typeof book.bookId +"I am in the logic after the query")
-    console.log("this is my imageName "+typeof book.imageName +"I am in the logic after the query")
     const info: OkPacket= await dal.execute(sql)
     if(info.affectedRows===0) throw new ResourceNotFoundErrorModel(book.bookId)
     return book
 }
+
 
 
 async function deleteBook(id: number):Promise<void>{
@@ -86,13 +126,13 @@ async function deleteBook(id: number):Promise<void>{
 
     // handleFiles(book)
 
-    if (fs.existsSync("./src/1-Assets/images/" + book.imageName)) {
-        console.log("I exist" + book.imageName)
+    // if (fs.existsSync("./src/1-Assets/images/" + book.imageName)) {
+    //     console.log("I exist" + book.imageName)
 
-        // Delete it:
-        fs.unlinkSync("./src/1-Assets/images/" + book.imageName);
-        console.log("file deleted")
-    }
+    //     // Delete it:
+    //     fs.unlinkSync("./src/1-Assets/images/" + book.imageName);
+    //     console.log("file deleted")
+    // }
 
     // query for deleting this book
     const sql=`

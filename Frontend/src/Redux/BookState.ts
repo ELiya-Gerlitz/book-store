@@ -31,7 +31,7 @@ export function BookReducer(currentState= new BookState(), action: BookActions):
 
     case BookActionTypes.UpdateBook:
         let updatedBookIndex= newState.books.findIndex(b=>b.bookId===action.payload.bookId)        //new details about one book
-        if(updatedBookIndex > 0){
+        if(updatedBookIndex > -1){
             newState.books[updatedBookIndex]= action.payload
         }
         break

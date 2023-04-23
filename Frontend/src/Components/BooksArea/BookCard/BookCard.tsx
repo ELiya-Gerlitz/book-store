@@ -17,6 +17,7 @@ function BookCard(props: bookInterface): JSX.Element {
                 <div>Book Name: {props.book.name}</div>
                 <div>Price: {props.book.price}</div>
                 <div>Stock: {props.book.stock}</div><br></br>
+                {/* <div>genre: {props.book.genreName}</div><br></br> */}
                 <img src={appConfig.imgURL + props.book.imageName} />
         
 
