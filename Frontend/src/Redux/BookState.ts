@@ -41,7 +41,7 @@ export function BookReducer(currentState= new BookState(), action: BookActions):
 
     case BookActionTypes.DeleteBook:
         let indexToDelete= newState.books.findIndex(b=>b.bookId===action.payload)        
-        if(indexToDelete>0){
+        if(indexToDelete > -1){
             newState.books.splice(indexToDelete, 1)
         }
         break

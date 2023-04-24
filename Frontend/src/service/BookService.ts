@@ -6,7 +6,7 @@ import { AuthStore } from "../Redux/AuthState";
 import GenreModel from "../Models/GenreModel";
 
 
-async function getAllBooks(): Promise<BookModel[]> {
+async function getAllBooksPlusExtensionField(): Promise<BookModel[]> {
 
     let books = BookStore.getState().books;
     if (books.length === 0) {
@@ -17,16 +17,23 @@ async function getAllBooks(): Promise<BookModel[]> {
     return books;
 }
 
-async function getOneBook(bookId: number): Promise<BookModel> {
+async function getOneBookPlusExtensions(bookId: number): Promise<BookModel> {
 
     let books= BookStore.getState().books
     let book= books.find(b=>b.bookId===bookId)
     if(!book){
-    const response = await axios.get<BookModel>(appConfig.AllBooksURL + bookId)
+    const response = await axios.get<BookModel>(appConfig.genresURL + bookId)
     book = response.data
     }
     return book
 }
+
+// async function getOneBookWithExtraField(bookId: number):Promise<BookModel>{
+//     const response = await axios.get<BookModel>(appConfig.genresURL + bookId)
+//     const data= response.data
+//     return data
+
+// }
 
 async function postOneBook(book: BookModel): Promise<void> {
 
@@ -70,23 +77,24 @@ async function getAllGenres():Promise<GenreModel[]>{
     return genres
 }
 
-async function getOneGenre(id: number):Promise<GenreModel>{
-    let genres = BookStore.getState().genres
-    let index = genres.findIndex(g=> g.genreId ===id)
-    let genre = genres[index]
-    if(index < -1){
-        const response= await axios.get<GenreModel>(appConfig.genresURL+ id)
-        genre= response.data
-    }
-    return genre
-}
+// async function getOneGenre(id: number):Promise<GenreModel>{
+//     let genres = BookStore.getState().genres
+//     let index = genres.findIndex(g=> g.genreId ===id)
+//     let genre = genres[index]
+//     if(index < -1){
+//         const response= await axios.get<GenreModel>(appConfig.genresURL+ id)
+//         genre= response.data
+//     }
+//     return genre
+// }
 
 export default {
-    getAllBooks,
-    getOneBook,
+    getAllBooksPlusExtensionField,
+    getOneBookPlusExtensions,
+    // getOneBookWithExtraField,
     postOneBook,
     updateBook,
     deleteBook,
     getAllGenres,
-    getOneGenre
+    // getOneGenre
 }

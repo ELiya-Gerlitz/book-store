@@ -15,7 +15,7 @@ const id = +params.bookId
 
 useEffect(() => {
     const id = +params.bookId; 
-    BookService.getOneBook(id)
+    BookService.getOneBookPlusExtensions(id)
         .then(book => console.log(setBook(book)))
         .catch(err => console.log(err));
 }, []);
@@ -30,6 +30,7 @@ useEffect(() => {
                     <div>Name: {book.name}</div>
                     <div>Price: {book.price}</div>
                     <div>Stock: {book.stock}</div>
+                    <div>Stock: {book.genreName}</div>
                     <img src={appConfig.imgURL + book.imageName}/>
                 </>
             }

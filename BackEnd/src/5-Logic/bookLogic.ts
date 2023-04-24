@@ -14,7 +14,9 @@ import GenreModel from "../4-Models/GenreModel";
 
 async function getAllBooks():Promise<BookModel[]>{
     const sql=`
-    SELECT * FROM books
+    SELECT b.* , g.genreName
+    FROM books as b JOIN genre as g
+    ON b.genreId = g.genreId
     `
     const books= await dal.execute(sql)
     return books
@@ -101,9 +103,8 @@ async function deleteBook(id: number):Promise<void>{
     //     console.log("I exist" + book.imageName)
 
     //     // Delete it:
-    //     fs.unlinkSync("./src/1-Assets/images/" + book.imageName);
-    //     console.log("file deleted")
-    // }
+    const path= "./src/1-Assets/images/" + book.imageName
+        fs.unlinkSync(path);
 
     const sql=`
     DELETE FROM books
@@ -133,7 +134,7 @@ async function getOneGenre(id: number):Promise<GenreModel>{
     return genreName
 }
 
-async function getGenreName(bookId :number):Promise<BookModel>{
+async function getGenreNamePlusBook(bookId :number):Promise<BookModel>{
     const sql= `
         SELECT books.* , genre.genreName
         FROM genre Join books
@@ -153,5 +154,5 @@ export default {
     deleteBook,
     getAllGenres,
     getOneGenre,
-    getGenreName
+    getGenreNamePlusBook
 }

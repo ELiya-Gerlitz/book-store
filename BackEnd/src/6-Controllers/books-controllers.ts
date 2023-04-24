@@ -77,10 +77,12 @@ router.get("/genres/", async (request: Request, response: Response,next: NextFun
         next(err)
     }
 })
-router.get("/genres/:genreId", async(request: Request, response: Response,next: NextFunction)=>{
+
+// get single book according to the bookId + get extra field from the genre JOIN
+router.get("/genres/:bookId", async(request: Request, response: Response,next: NextFunction)=>{
     try{
-        const genreId= +request.params.genreId
-        const genreName= await bookLogic.getOneGenre(genreId)
+        const genreId= +request.params.bookId
+        const genreName= await bookLogic.getGenreNamePlusBook(genreId)
         response.json(genreName)
     }catch(err:any){
         next(err)

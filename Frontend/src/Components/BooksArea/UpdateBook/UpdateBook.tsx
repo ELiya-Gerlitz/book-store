@@ -17,12 +17,13 @@ function UpdateBook(): JSX.Element {
     const navigate= useNavigate()
     
 useEffect(()=>{
-    BookService.getOneBook(id)
+    BookService.getOneBookPlusExtensions(id)
     .then((book)=>{
         setValue("bookId", book.bookId)
         setValue("name", book.name)
         setValue("price", book.price)
         setValue("stock", book.stock)
+        setValue("genreName", book.genreName)
         setValue("imageName", book.imageName)
         setBook(book)
         console.log(book.bookId)
@@ -55,6 +56,9 @@ const send= (data:BookModel)=>{
 
                         <label htmlFor="stock">stock</label>
                         <input type="number"   {...register("stock")}/>
+
+                        <label htmlFor="genreName">stock</label>
+                        <input type="string"   {...register("genreName")}/>
 
                         <input type="text" {...register("imageName")}/>
                                                 

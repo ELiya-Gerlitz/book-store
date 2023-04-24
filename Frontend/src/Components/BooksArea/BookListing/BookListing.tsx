@@ -17,7 +17,7 @@ useEffect(()=>{
 })
 
     useEffect(() => {
-        BookService.getAllBooks()
+        BookService.getAllBooksPlusExtensionField()
             .then(books => {
                 setBooks(books)
                 console.log("before" + books)
