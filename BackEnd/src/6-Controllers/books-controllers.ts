@@ -16,15 +16,15 @@ router.get("/books",writeMethods, async( request: Request, response: Response,ne
     }
 })
 
-router.get("/books/:bookId", writeMethods,  async(request: Request, response: Response,next: NextFunction)=>{
-    try{
-        const bookId= +request.params.bookId
-        const book= await bookLogic.getOneBook(bookId)
-        response.json(book)
-    }catch(err:any){
-        next(err)
-    }
-})
+// router.get("/books/:bookId", writeMethods,  async(request: Request, response: Response,next: NextFunction)=>{
+//     try{
+//         const bookId= +request.params.bookId
+//         const book= await bookLogic.getOneBook(bookId)
+//         response.json(book)
+//     }catch(err:any){
+//         next(err)
+//     }
+// })
 
 
 router.post("/books", verifyLoggedIn, async (request: Request, response: Response, next:NextFunction)=>{

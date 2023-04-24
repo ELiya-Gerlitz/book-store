@@ -100,8 +100,6 @@ async function putBook(book: BookModel):Promise<BookModel>{
     return book
 }
 
-
-
 async function deleteBook(id: number):Promise<void>{
 
     const sqlForDeletingImage=`
@@ -111,11 +109,6 @@ async function deleteBook(id: number):Promise<void>{
     const bookarr :OkPacket= await dal.execute(sqlForDeletingImage)
     const book= bookarr[0]
     if(!book) throw new ResourceNotFoundErrorModel(id)
-
-    // handleFiles(book)
-
-    // if (fs.existsSync("./src/1-Assets/images/" + book.imageName)) {
-    //     console.log("I exist" + book.imageName)
 
     //     // Delete it:
     try{
