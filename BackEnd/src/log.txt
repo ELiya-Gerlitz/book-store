@@ -653,3 +653,6 @@
 
     Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
     24.4.2023, 15:08:46
+
+    [object Object] ---------------------------
+    24.4.2023, 15:44:51

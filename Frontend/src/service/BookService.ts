@@ -55,9 +55,9 @@ async function updateBook(book: BookModel): Promise<void> {
     myForm.append("name", book.name)
     myForm.append("price", book.price.toString())
     myForm.append("stock", book.stock.toString())
-    myForm.append("genreId", book.genreId.toString())
-    // myForm.append("genreName", book.genreName)
     myForm.append("image", book.image[0])
+    myForm.append("imageName", book.imageName)
+    myForm.append("genreId", book.genreId.toString())
     const response = await axios.put<BookModel>(appConfig.AllBooksURL + book.bookId, myForm, {headers: {authorization: "Bearer " + AuthStore.getState().token } })
     const updatedBook = response.data
     BookStore.dispatch({type: BookActionTypes.UpdateBook, payload: updatedBook})
