@@ -12,7 +12,6 @@ function BookCard(props: bookInterface): JSX.Element {
         <NavLink to={"/books/"+props.book.bookId}>
         <div className="BookCard Box">
 
-           
                 <div>ID: {props.book.bookId}</div>
                 <div>Book Name: {props.book.name}</div>
                 <div>Price: {props.book.price}</div>
@@ -20,11 +19,8 @@ function BookCard(props: bookInterface): JSX.Element {
                 <div>genre: {props.book.genreName}</div><br></br>
                 <img src={appConfig.imgURL + props.book.imageName} />
         
-
-
         </div>
         </NavLink>
-        
     );
 }
 

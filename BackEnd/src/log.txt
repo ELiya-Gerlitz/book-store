@@ -752,3 +752,17 @@
 
     TypeError: Cannot read properties of undefined (reading 'insertId') ---------------------------
     24.4.2023, 20:26:24
+
+    [object Object] ---------------------------
+    24.4.2023, 20:53:56
+
+    [object Object] ---------------------------
+    24.4.2023, 23:17:13
+
+    Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'genreId = "6"
+    WHERE bookId= 25' at line 7 ---------------------------
+    25.4.2023, 0:33:49
+
+    Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'genreId = 6
+    WHERE bookId= 25' at line 7 ---------------------------
+    25.4.2023, 0:34:37

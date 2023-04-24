@@ -22,15 +22,16 @@ async function getAllBooks():Promise<BookModel[]>{
     return books
 }
 
-async function getOneBook(bookId:number):Promise<BookModel>{
-    const sql=`
-            SELECT *
-            FROM books
-            WHERE bookId=${bookId}
-        `
-    const books= await dal.execute(sql)
-    const book= books[0]  // überflüßig? Nein! Im gegenteil!
-    return book
+async function getOneBookWithExtensions(bookId :number):Promise<BookModel>{
+    const sql= `
+        SELECT books.* , genre.genreName
+        FROM genre Join books
+        ON genre.genreId = books.genreId
+        WHERE books.bookId = ${bookId}
+    `
+    const info : OkPacket = await dal.execute(sql)
+    if(!info[0]) throw new ResourceNotFoundErrorModel(bookId)
+    return info[0]  // überflüßig? Nein! Im gegenteil!🤠
 }
 
 async function postOneBook(book:BookModel):Promise<BookModel>{
@@ -68,12 +69,13 @@ async function putBook(book: BookModel):Promise<BookModel>{
     const err= book.validate()
     if(err) throw new ValidationErrorModel(err)
 
-    const bookToUpdate = await getOneBook(book.bookId)         
+    // const bookToUpdate = await getOneBook(book.bookId)         
+    const bookToUpdate = await getOneBookWithExtensions(book.bookId)         
         if(book.image){
            const imagePath= "./src/1-Assets/images/" + bookToUpdate.imageName
 
         //   await fsPromises.unlink(imagePath) //das wirkt auch gut!
-          await fs.unlinkSync(imagePath)
+           fs.unlinkSync(imagePath)
 
            const extension= path.extname(book.image.name)        
            book.imageName = uuid()+ extension
@@ -90,11 +92,13 @@ async function putBook(book: BookModel):Promise<BookModel>{
         name = "${book.name}",
         price = ${book.price},
         stock = ${book.stock},
-        imageName = "${book.imageName}"
+        imageName = "${book.imageName}",
+        genreId = ${book.genreId}
     WHERE bookId= ${book.bookId}
     `
     const info: OkPacket= await dal.execute(sql)
     if(info.affectedRows===0) throw new ResourceNotFoundErrorModel(book.bookId)
+    // return info[0]
     return book
 }
 
@@ -144,25 +148,12 @@ async function getOneGenre(id: number):Promise<GenreModel>{
     return genreName
 }
 
-async function getOneBookWithExtensions(bookId :number):Promise<BookModel>{
-    const sql= `
-        SELECT books.* , genre.genreName
-        FROM genre Join books
-        ON genre.genreId = books.genreId
-        WHERE books.bookId = ${bookId}
-    `
-    const info : OkPacket = await dal.execute(sql)
-    if(!info[0]) throw new ResourceNotFoundErrorModel(bookId)
-    return info[0]
-}
-
 export default {
     getAllBooks,
-    getOneBook,
+    getOneBookWithExtensions,
     postOneBook,
     putBook,
     deleteBook,
     getAllGenres,
     getOneGenre,
-    getOneBookWithExtensions
 }

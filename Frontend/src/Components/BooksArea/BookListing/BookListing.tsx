@@ -13,8 +13,7 @@ function BookListing(): JSX.Element {
         BookService.getAllBooksPlusExtensionField()
             .then(books => {
                 setBooks(books)
-                console.log("before" + books)
-                BookStore.subscribe(() => {setBooks(books); console.log("after" + books)})
+                BookStore.subscribe(() => {setBooks(books)})
             })
             .catch(err => console.log(err))
     }, [])
