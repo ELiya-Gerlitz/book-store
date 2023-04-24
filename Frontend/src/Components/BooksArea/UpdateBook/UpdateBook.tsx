@@ -15,10 +15,12 @@ function UpdateBook(): JSX.Element {
     const [book, setBook]=useState<BookModel>()
     const [genre, setGenre]=useState<GenreModel[]>([])
     const params= useParams()
-    const id= +params.bookId
     const navigate= useNavigate()
+    const id= +params.bookId
+
     
 useEffect(()=>{
+    const id= +params.bookId
     BookService.getOneBookPlusExtensions(id)
     .then((book)=>{
         setValue("bookId", book.bookId)
@@ -38,7 +40,6 @@ useEffect(()=>{
     BookService.getAllGenres()
     .then(genre=>{
         setGenre(genre)
-        console.log(genre)
     })
     .catch(err=>console.log(err))
 })
@@ -55,6 +56,7 @@ const send= (data:BookModel)=>{
     return (
         <div className="UpdateBook">
             <div className="Box">
+                {book && 
                     <form onSubmit={handleSubmit(send)}>
                         <input hidden type="number" {...register("bookId")}/>
 
@@ -70,9 +72,8 @@ const send= (data:BookModel)=>{
                         <label htmlFor="genreName">genreName</label>
                         <input type="string"   {...register("genreName")}/>
 
-                        <select name="cars" id="cars">
-                           {/* {genre && <option value={book && book.genreName}>{book && book.genreName}</option>} */}
-                           {genre && genre.map((g)=><option value={g.genreId}>{g.genreName}</option>)}
+                        <select >
+                           {genre && genre.map((g)=><option key={g.genreId} value={g.genreId}>{g.genreName}</option>)}
                           
                         </select>
 
@@ -88,6 +89,7 @@ const send= (data:BookModel)=>{
 
                         <br></br><input type="submit" value={"update book"}/>
                 </form >
+                }
             </div>
 
             <br></br> <NavLink to={"/books/"+ id}>Back</NavLink>

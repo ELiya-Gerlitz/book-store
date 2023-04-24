@@ -134,7 +134,7 @@ async function getOneGenre(id: number):Promise<GenreModel>{
     return genreName
 }
 
-async function getGenreNamePlusBook(bookId :number):Promise<BookModel>{
+async function getOneBookWithExtensions(bookId :number):Promise<BookModel>{
     const sql= `
         SELECT books.* , genre.genreName
         FROM genre Join books
@@ -142,8 +142,8 @@ async function getGenreNamePlusBook(bookId :number):Promise<BookModel>{
         WHERE books.bookId = ${bookId}
     `
     const info : OkPacket = await dal.execute(sql)
-    if(!info) throw new ResourceNotFoundErrorModel(bookId)
-    return info
+    if(!info[0]) throw new ResourceNotFoundErrorModel(bookId)
+    return info[0]
 }
 
 export default {
@@ -154,5 +154,5 @@ export default {
     deleteBook,
     getAllGenres,
     getOneGenre,
-    getGenreNamePlusBook
+    getOneBookWithExtensions
 }

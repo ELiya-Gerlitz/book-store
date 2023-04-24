@@ -6,6 +6,7 @@ class BookModel{
     public stock: number
     public image: FileList
     public imageName: string
+    public genreId: number
 
     // Extra field due to server JOIN:
 

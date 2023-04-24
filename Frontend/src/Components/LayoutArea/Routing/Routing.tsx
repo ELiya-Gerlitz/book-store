@@ -13,12 +13,12 @@ function Routing(): JSX.Element {
         <div className="Routing">
 
             <Routes>
-                <Route path="/" element={<HomePage />} ></Route>
-                <Route path="/books" element={<BookListing />} ></Route>
-                <Route path="/books/:bookId" element={<SingleBook />} ></Route>
+                <Route path="/" element={<HomePage/>} ></Route>
+                <Route path="/books" element={<BookListing/>} ></Route>
+                <Route path="/books/:bookId" element={<SingleBook/>} ></Route>
                 <Route path="/books/add" element={<AddBook />}></Route>
-                <Route path="/books/update/:bookId" element={<UpdateBook />}></Route>
-                <Route path="/books/auth/register" element={<Register />}></Route>
+                <Route path="/books/update/:bookId" element={<UpdateBook/>}></Route>
+                <Route path="/books/auth/register" element={<Register/>}></Route>
                 <Route path="/books/auth/login" element={<Login/>}></Route>
                 <Route path="/books/preview" element={<Preview/>}></Route>
 

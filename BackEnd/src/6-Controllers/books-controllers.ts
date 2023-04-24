@@ -82,7 +82,7 @@ router.get("/genres/", async (request: Request, response: Response,next: NextFun
 router.get("/genres/:bookId", async(request: Request, response: Response,next: NextFunction)=>{
     try{
         const genreId= +request.params.bookId
-        const genreName= await bookLogic.getGenreNamePlusBook(genreId)
+        const genreName= await bookLogic.getOneBookWithExtensions(genreId)
         response.json(genreName)
     }catch(err:any){
         next(err)

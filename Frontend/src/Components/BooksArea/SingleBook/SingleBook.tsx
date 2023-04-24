@@ -11,12 +11,13 @@ function SingleBook(): JSX.Element {
 
 const params = useParams();
 const [book, setBook] = useState<BookModel>();
-const id = +params.bookId
+const id = +params.bookId; 
+
 
 useEffect(() => {
     const id = +params.bookId; 
     BookService.getOneBookPlusExtensions(id)
-        .then(book => console.log(setBook(book)))
+        .then(book => setBook(book))
         .catch(err => console.log(err));
 }, []);
 
@@ -24,14 +25,15 @@ useEffect(() => {
       
         <div className="SingleBook">
               <NavLink to={"/books/"} className="Box">
-            {book&&
+                {!book && <span>I am not yet ready</span>}
+            {book &&
                 <>
                     <div> ID: {book.bookId}</div>
                     <div>Name: {book.name}</div>
                     <div>Price: {book.price}</div>
                     <div>Stock: {book.stock}</div>
-                    <div>Stock: {book.genreName}</div>
-                    <img src={appConfig.imgURL + book.imageName}/>
+                    <div>genreName: {book.genreName}</div>
+                    <img src={appConfig.imgURL + book.imageName} alt="singleBookImg"/>
                 </>
             }
              </NavLink>
