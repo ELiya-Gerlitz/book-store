@@ -7,11 +7,13 @@ import BookModel from "../../../Models/BookModel";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import appConfig from "../../../Utils/AppConfig";
+import GenreModel from "../../../Models/GenreModel";
 
 function UpdateBook(): JSX.Element {
 
     const { register, setValue, handleSubmit } = useForm<BookModel>();
     const [book, setBook]=useState<BookModel>()
+    const [genre, setGenre]=useState<GenreModel[]>([])
     const params= useParams()
     const id= +params.bookId
     const navigate= useNavigate()
@@ -32,6 +34,14 @@ useEffect(()=>{
     .catch((err:any)=>{console.log(err)})
 },[])
 
+useEffect(()=>{
+    BookService.getAllGenres()
+    .then(genre=>{
+        setGenre(genre)
+        console.log(genre)
+    })
+    .catch(err=>console.log(err))
+})
 
 const send= (data:BookModel)=>{
     BookService.updateBook(data)
@@ -57,8 +67,14 @@ const send= (data:BookModel)=>{
                         <label htmlFor="stock">stock</label>
                         <input type="number"   {...register("stock")}/>
 
-                        <label htmlFor="genreName">stock</label>
+                        <label htmlFor="genreName">genreName</label>
                         <input type="string"   {...register("genreName")}/>
+
+                        <select name="cars" id="cars">
+                           {/* {genre && <option value={book && book.genreName}>{book && book.genreName}</option>} */}
+                           {genre && genre.map((g)=><option value={g.genreId}>{g.genreName}</option>)}
+                          
+                        </select>
 
                         <input type="text" {...register("imageName")}/>
                                                 

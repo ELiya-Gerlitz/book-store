@@ -539,3 +539,15 @@
 
     Error: ENOENT: no such file or directory, unlink './src/1-Assets/images/undefined' ---------------------------
     24.4.2023, 12:56:46
+
+    Error: ER_BAD_FIELD_ERROR: Unknown column 'NaN' in 'where clause' ---------------------------
+    24.4.2023, 13:09:16
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    24.4.2023, 13:21:50
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    24.4.2023, 13:22:21
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    24.4.2023, 13:59:36

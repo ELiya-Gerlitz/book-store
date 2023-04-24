@@ -114,7 +114,7 @@ async function deleteBook(id: number):Promise<void>{
     if(info.affectedRows===0) throw new ResourceNotFoundErrorModel(id)
 }
 
-//Brauche ich das überhaupt?
+//Brauche ich das überhaupt? Ja! Für den <select> Tag in den UpdateBook.
 async function getAllGenres():Promise<GenreModel[]>{
     const sql=`
     SELECT * FROM genre
