@@ -656,3 +656,54 @@
 
     [object Object] ---------------------------
     24.4.2023, 15:44:51
+
+    Error: ENOENT: no such file or directory, unlink './src/1-Assets/images/undefined' ---------------------------
+    24.4.2023, 16:10:48
+
+    Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`book_store`.`books`, CONSTRAINT `books_ibfk_1` FOREIGN KEY (`genreId`) REFERENCES `genre` (`genreId`)) ---------------------------
+    24.4.2023, 16:48:52
+
+    [object Object] ---------------------------
+    24.4.2023, 17:01:49
+
+    [object Object] ---------------------------
+    24.4.2023, 17:11:04
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    24.4.2023, 17:30:21
+
+    Error: ER_BAD_FIELD_ERROR: Unknown column 'NaN' in 'where clause' ---------------------------
+    24.4.2023, 17:31:32
+
+    Error: ER_BAD_FIELD_ERROR: Unknown column 'NaN' in 'where clause' ---------------------------
+    24.4.2023, 17:31:34
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    24.4.2023, 17:35:57
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    24.4.2023, 17:36:22
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    24.4.2023, 18:40:42
+
+    [object Object] ---------------------------
+    24.4.2023, 18:56:45
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    24.4.2023, 18:56:59
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\66e67276-a446-46c0-aa7e-7c3ff74539e1.gif' ---------------------------
+    24.4.2023, 18:57:11
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\66e67276-a446-46c0-aa7e-7c3ff74539e1.gif' ---------------------------
+    24.4.2023, 18:57:20
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\66e67276-a446-46c0-aa7e-7c3ff74539e1.gif' ---------------------------
+    24.4.2023, 18:58:31
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\66e67276-a446-46c0-aa7e-7c3ff74539e1.gif' ---------------------------
+    24.4.2023, 18:58:36
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    24.4.2023, 18:59:00

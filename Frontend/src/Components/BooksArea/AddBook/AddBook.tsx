@@ -33,7 +33,7 @@ function AddBook(): JSX.Element {
     // This function will be triggered when the file field changes
     const imageChange = (e:any) => {
         if (e.target.files && e.target.files.length > 0) {
-          setSelectedImage(e.target.files[0]);
+          setSelectedImage(e.target.files.value[0]);
         }
       };
 
@@ -44,6 +44,7 @@ function AddBook(): JSX.Element {
                 <input type="text" placeholder="book name" {...register("name")}/>
                 <input type="number" placeholder="price" {...register("price")}/>
                 <input type="number" placeholder="stock" {...register("stock")}/>
+                <input type="number" placeholder="genreId" {...register("genreId")}/>
                 {/* <div>
                 <input type="file" accept="image/*"  onChange={renderPreview} {...register("image")}/>  
                 {preview && <div><img src={URL.createObjectURL(preview)} alt="previewImage"/></div>}

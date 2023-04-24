@@ -41,9 +41,11 @@ async function postOneBook(book: BookModel): Promise<void> {
 
     const myForm = new FormData()
     myForm.append("name", book.name)
-    myForm.append("price", book.price.toString())
-    myForm.append("stock", book.stock.toString())
-    myForm.append("image", book.image[0])
+    myForm.append("price", book?.price.toString())
+    myForm.append("stock", book?.stock.toString())
+    myForm.append("image", book?.image[0])
+    myForm.append("imageName", book?.imageName)
+    myForm.append("genreId", book?.genreId.toString())
     const response = await axios.post<BookModel>(appConfig.AllBooksURL, myForm, { headers })
     const newBook = response.data
     BookStore.dispatch({type: BookActionTypes.AddBook, payload: newBook})
@@ -53,11 +55,11 @@ async function updateBook(book: BookModel): Promise<void> {
 
     const myForm = new FormData()
     myForm.append("name", book.name)
-    myForm.append("price", book.price.toString())
-    myForm.append("stock", book.stock.toString())
-    myForm.append("image", book.image[0])
-    myForm.append("imageName", book.imageName)
-    myForm.append("genreId", book.genreId.toString())
+    myForm.append("price", book?.price.toString())
+    myForm.append("stock", book?.stock.toString())
+    myForm.append("image", book?.image[0])
+    myForm.append("imageName", book?.imageName)
+    myForm.append("genreId", book.genreId?.toString())
     const response = await axios.put<BookModel>(appConfig.AllBooksURL + book.bookId, myForm, {headers: {authorization: "Bearer " + AuthStore.getState().token } })
     const updatedBook = response.data
     BookStore.dispatch({type: BookActionTypes.UpdateBook, payload: updatedBook})

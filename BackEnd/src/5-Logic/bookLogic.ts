@@ -36,18 +36,33 @@ async function getOneBook(bookId:number):Promise<BookModel>{
 async function postOneBook(book:BookModel):Promise<BookModel>{
     const err= book.validate()
     if(err) throw new ValidationErrorModel(err)
-    if(book.image){
-        handleFiles(book)
-    }
-    const sql=`
-    INSERT INTO books(name, price, stock, imageName)
-    VALUES("${book.name}", ${book.price}, ${book.stock}, "${book.imageName}")
 
+    if(book.image){
+        try{
+                // handleFiles(book) no need to delete anything.(!🙄) it is a completely new book added presently.
+            // const pathtoDelete= " ./src/1-Assets/images/" + book.imageName
+            // fs.unlinkSync(pathtoDelete)
+
+            const extension = path.extname(book.image.name)
+            book.imageName= uuid() +extension
+            const pathToKeep="./src/1-Assets/images/" + book.imageName
+            book.image.mv(pathToKeep)
+            delete book.image
+
+        }catch(err:any){
+            console.log(err)
+        }
+    }
+    const sql=
+    `
+    INSERT INTO books(name, price, stock, imageName, genreId)
+    VALUES("${book.name}", ${book.price}, ${book.stock}, "${book.imageName}", "${book.genreId}")
     `
     const info: OkPacket=  await dal.execute(sql)
-    book.bookId=info.insertId
-
-    return book
+    const bookarr = info.insertId
+    const addedBook= bookarr[0]
+    
+    return addedBook
 }
 
 // Das war nicht gut. Was hat gefehlt? Des fetches des vorherigen Buch. (! Es nervt mich dass ich das Fehler nich verstehe!)
@@ -94,7 +109,8 @@ async function deleteBook(id: number):Promise<void>{
     SELECT * FROM books
     WHERE bookId= ${id}
     `
-    const book :BookModel= await dal.execute(sqlForDeletingImage)
+    const bookarr :OkPacket= await dal.execute(sqlForDeletingImage)
+    const book= bookarr[0]
     if(!book) throw new ResourceNotFoundErrorModel(id)
 
     // handleFiles(book)
@@ -103,8 +119,12 @@ async function deleteBook(id: number):Promise<void>{
     //     console.log("I exist" + book.imageName)
 
     //     // Delete it:
-    const path= "./src/1-Assets/images/" + book.imageName
+    try{
+        const path= "./src/1-Assets/images/" + book.imageName
         fs.unlinkSync(path);
+    }catch(err:any){
+        console.log(err)
+    }
 
     const sql=`
     DELETE FROM books

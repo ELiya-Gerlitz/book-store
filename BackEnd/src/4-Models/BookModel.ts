@@ -8,6 +8,7 @@ class BookModel{
     public stock: number
     public image: UploadedFile
     public imageName: string
+    public genreId: number
     constructor(book:BookModel){
         this.bookId=book.bookId
         this.name= book.name
@@ -15,6 +16,7 @@ class BookModel{
         this.stock= book.stock
         this.image= book.image
         this.imageName= book.imageName
+        this.genreId= book.genreId
     }
 
     public static validationSchema= joi.object({
@@ -23,7 +25,8 @@ class BookModel{
         price: joi.number(),
         stock: joi.number().min(1).max(1000).required().positive(),
         image: joi.optional(),
-        imageName: joi.optional()
+        imageName: joi.optional(),
+        genreId: joi.required()
     })
 
 
