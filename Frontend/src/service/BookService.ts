@@ -28,13 +28,6 @@ async function getOneBookPlusExtensions(bookId: number): Promise<BookModel> {
     return book
 }
 
-// async function getOneBookWithExtraField(bookId: number):Promise<BookModel>{
-//     const response = await axios.get<BookModel>(appConfig.genresURL + bookId)
-//     const data= response.data
-//     return data
-
-// }
-
 async function postOneBook(book: BookModel): Promise<void> {
 
     const headers = { authorization: "Bearer " + AuthStore.getState().token}
@@ -48,6 +41,7 @@ async function postOneBook(book: BookModel): Promise<void> {
     myForm.append("genreId", book?.genreId.toString())
     const response = await axios.post<BookModel>(appConfig.AllBooksURL, myForm, { headers })
     const newBook = response.data
+    console.log(newBook)
     BookStore.dispatch({type: BookActionTypes.AddBook, payload: newBook})
 }
 
@@ -58,7 +52,7 @@ async function updateBook(book: BookModel): Promise<void> {
     myForm.append("price", book?.price.toString())
     myForm.append("stock", book?.stock.toString())
     myForm.append("image", book?.image[0])
-    myForm.append("imageName", book?.imageName)
+    // myForm.append("imageName", book?.imageName)
     myForm.append("genreId", book.genreId?.toString())
     const response = await axios.put<BookModel>(appConfig.AllBooksURL + book.bookId, myForm, {headers: {authorization: "Bearer " + AuthStore.getState().token } })
     const updatedBook = response.data

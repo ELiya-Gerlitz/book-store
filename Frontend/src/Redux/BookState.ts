@@ -26,29 +26,29 @@ export function BookReducer(currentState= new BookState(), action: BookActions):
 
     case BookActionTypes.FetchAllBooks:
         newState.books = action.payload
-        break
+        break;
 
     case BookActionTypes.AddBook:
         newState.books.push(action.payload)
-        break
+        break;
 
     case BookActionTypes.UpdateBook:
         let updatedBookIndex= newState.books.findIndex(b=>b.bookId===action.payload.bookId)        //new details about one book
         if(updatedBookIndex > -1){
             newState.books[updatedBookIndex]= action.payload
         }
-        break
+        break;
 
     case BookActionTypes.DeleteBook:
         let indexToDelete= newState.books.findIndex(b=>b.bookId===action.payload)        
         if(indexToDelete > -1){
             newState.books.splice(indexToDelete, 1)
         }
-        break
+        break;
 
         case BookActionTypes.getAllGenres:
             newState.genres=action.payload
-            break
+            break;
    }
 
    return newState

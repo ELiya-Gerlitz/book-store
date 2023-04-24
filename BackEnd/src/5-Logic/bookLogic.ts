@@ -45,8 +45,9 @@ async function postOneBook(book:BookModel):Promise<BookModel>{
 
             const extension = path.extname(book.image.name)
             book.imageName= uuid() +extension
+            console.log("I am in the if statement in before the post query Logic" + book.imageName)
             const pathToKeep="./src/1-Assets/images/" + book.imageName
-            book.image.mv(pathToKeep)
+            await book.image.mv(pathToKeep)
             delete book.image
 
         }catch(err:any){
@@ -59,10 +60,8 @@ async function postOneBook(book:BookModel):Promise<BookModel>{
     VALUES("${book.name}", ${book.price}, ${book.stock}, "${book.imageName}", "${book.genreId}")
     `
     const info: OkPacket=  await dal.execute(sql)
-    const bookarr = info.insertId
-    const addedBook= bookarr[0]
-    
-    return addedBook
+    book.bookId= info.insertId
+    return book
 }
 
 // Das war nicht gut. Was hat gefehlt? Des fetches des vorherigen Buch. (! Es nervt mich dass ich das Fehler nich verstehe!)

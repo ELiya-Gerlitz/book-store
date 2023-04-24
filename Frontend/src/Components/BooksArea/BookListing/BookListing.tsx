@@ -8,13 +8,6 @@ import GenreModel from "../../../Models/GenreModel";
 
 function BookListing(): JSX.Element {
     const [books, setBooks] = useState<BookModel[]>([])
-    const [genres , setGenres] = useState<GenreModel[]>([])
-
-useEffect(()=>{
-    BookService.getAllGenres()
-    .then(genres=> setGenres(genres))
-    .catch((err:any)=>{console.log(err)})
-})
 
     useEffect(() => {
         BookService.getAllBooksPlusExtensionField()
@@ -28,7 +21,7 @@ useEffect(()=>{
 
     return (
         <div className="BookListing">
-            {books.length === 0 ? <span>i am bookListing</span> : books.map(b => <BookCard key={b.bookId} book={b} />)}
+            {books && books.length === 0 ? <span>i am bookListing</span> : books.map(b => <BookCard key={b.bookId} book={b} />)}
         </div>
     );
 }
