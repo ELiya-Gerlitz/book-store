@@ -71,7 +71,7 @@ router.get("/books/images/:imageName", async (request: Request, response: Respon
 
 router.get("/genres/", async (request: Request, response: Response,next: NextFunction)=>{
     try{
-        const genres = await bookLogic.getAllGenreNames()
+        const genres = await bookLogic.getAllGenres()
         response.json(genres)
     }catch(err:any){
         next(err)
@@ -80,7 +80,7 @@ router.get("/genres/", async (request: Request, response: Response,next: NextFun
 router.get("/genres/:genreId", async(request: Request, response: Response,next: NextFunction)=>{
     try{
         const genreId= +request.params.genreId
-        const genreName= await bookLogic.getOneGenreName(genreId)
+        const genreName= await bookLogic.getOneGenre(genreId)
         response.json(genreName)
     }catch(err:any){
         next(err)
