@@ -1,4 +1,3 @@
-import { fileURLToPath, pathToFileURL } from "url";
 import dal from "../2-Utils/dal";
 import BookModel from "../4-Models/BookModel";
 import { ResourceNotFoundErrorModel, ValidationErrorModel } from "../4-Models/ErrorModel";
@@ -9,9 +8,8 @@ import fs from "fs"
 import fsPromises from "fs/promises"
 import path from "path";
 import {v4 as uuid} from "uuid"
-
+import GenreModel from "../4-Models/GenreModel";
 // import handleFiles from "../2-Utils/handleFiles";
-
 
 
 async function getAllBooks():Promise<BookModel[]>{
@@ -19,9 +17,7 @@ async function getAllBooks():Promise<BookModel[]>{
     SELECT * FROM books
     `
     const books= await dal.execute(sql)
-   
     return books
-
 }
 
 async function getOneBook(bookId:number):Promise<BookModel>{
@@ -30,9 +26,8 @@ async function getOneBook(bookId:number):Promise<BookModel>{
             FROM books
             WHERE bookId=${bookId}
         `
-        console.log("I am in the getOneBook in the Logic after the sql. The type of my bookId is: "+typeof bookId)
     const books= await dal.execute(sql)
-    const book= books[0]
+    const book= books[0]  // überflüßig?
     return book
 }
 
@@ -53,30 +48,7 @@ async function postOneBook(book:BookModel):Promise<BookModel>{
     return book
 }
 
-// Das ist nicht gut. Was fehlt? Des fetches des vorherigen Buch. (! Es nervt mich dass ich das Fehler nich verstehe!)
-// async function putBook(book: BookModel):Promise<BookModel>{
-//     const err= book.validate()
-//     if(err) throw new ValidationErrorModel(err)
-
-//     await handleFiles(book)
-
-//     const sql=`
-//     UPDATE books
-//     SET 
-//         name = "${book.name}",
-//         price = ${book.price},
-//         stock = ${book.stock},
-//         imageName = "${book.imageName}"
-//     WHERE bookId= ${book.bookId}
-//     `
-//     console.log(book.bookId+"I am in the logic after the query")
-//     console.log("this is my type........!!!! "+typeof book.bookId +"I am in the logic after the query")
-//     console.log("this is my imageName "+typeof book.imageName +"I am in the logic after the query")
-//     const info: OkPacket= await dal.execute(sql)
-//     if(info.affectedRows===0) throw new ResourceNotFoundErrorModel(book.bookId)
-//     return book
-// }
-
+// Das war nicht gut. Was hat gefehlt? Des fetches des vorherigen Buch. (! Es nervt mich dass ich das Fehler nich verstehe!)
 
 async function putBook(book: BookModel):Promise<BookModel>{
     const err= book.validate()
@@ -86,7 +58,7 @@ async function putBook(book: BookModel):Promise<BookModel>{
         if(book.image){
            const imagePath= "./src/1-Assets/images/" + bookToUpdate.imageName
 
-        //   await fsPromises.unlink(imagePath) //das ist auch gut
+        //   await fsPromises.unlink(imagePath) //das wirkt auch gut!
           await fs.unlinkSync(imagePath)
 
            const extension= path.extname(book.image.name)        
@@ -96,7 +68,6 @@ async function putBook(book: BookModel):Promise<BookModel>{
 
     }else if(!book.image){
         book.imageName= bookToUpdate.imageName
-
     }
 
     const sql=`
@@ -116,7 +87,7 @@ async function putBook(book: BookModel):Promise<BookModel>{
 
 
 async function deleteBook(id: number):Promise<void>{
-// in order to delete existing image
+
     const sqlForDeletingImage=`
     SELECT * FROM books
     WHERE bookId= ${id}
@@ -134,7 +105,6 @@ async function deleteBook(id: number):Promise<void>{
     //     console.log("file deleted")
     // }
 
-    // query for deleting this book
     const sql=`
     DELETE FROM books
     WHERE bookId= ${id}
@@ -143,18 +113,37 @@ async function deleteBook(id: number):Promise<void>{
     if(info.affectedRows===0) throw new ResourceNotFoundErrorModel(id)
 }
 
-// async function getImage(id: number):Promise<string>{
-//     const sql=`
-//         SELECT imageName
-//         FROM books
-//         WHERE bookId= ${id}
-//     `
+//Brauche ich das überhaupt?
+async function getAllGenres():Promise<GenreModel[]>{
+    const sql=`
+    SELECT * FROM genre
+    `
+    const genres :OkPacket= await dal.execute(sql)
+    return genres
+}
 
-//     const imageNamefromServer:OkPacket = await dal.execute(sql)
+async function getOneGenre(id: number):Promise<GenreModel>{
+    const sql=`
+    SELECT * FROM genre
+    WHERE genreId=${id}
+    `
+    const genreNames : OkPacket = await dal.execute(sql)
+    const genreName = genreNames[0]
+    if(!genreName) throw new ResourceNotFoundErrorModel(id)
+    return genreName
+}
 
-//     if(imageNamefromServer.affectedRows===0) throw new ResourceNotFoundErrorModel(id)
-//     return imageNamefromServer
-// }
+async function getGenreName(bookId :number):Promise<BookModel>{
+    const sql= `
+        SELECT books.* , genre.genreName
+        FROM genre Join books
+        ON genre.genreId = books.genreId
+        WHERE books.bookId = ${bookId}
+    `
+    const info : OkPacket = await dal.execute(sql)
+    if(!info) throw new ResourceNotFoundErrorModel(bookId)
+    return info
+}
 
 export default {
     getAllBooks,
@@ -162,5 +151,7 @@ export default {
     postOneBook,
     putBook,
     deleteBook,
-    // getImage
+    getAllGenres,
+    getOneGenre,
+    getGenreName
 }

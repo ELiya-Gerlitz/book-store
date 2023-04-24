@@ -10,7 +10,6 @@ const router= express.Router()
 router.get("/books",writeMethods, async( request: Request, response: Response,next: NextFunction)=>{
     try{
         const books= await bookLogic.getAllBooks()
-        // console.log(books)
         response.json(books)
     }catch(err:any){
         next(err)
@@ -59,18 +58,9 @@ router.delete("/books/:bookId", verifyLoggedIn, async (request: Request, respons
         next(err)
     }
 })
-// router.get("/books/images/:bookId([0-9]+)", async (request: Request, response: Response,next: NextFunction)=>{
-//     console.log("i am image controller!")
-//     const id= +request.params.bookId
-//     const fileName= await bookLogic.getImage(id)
-//     // const file= path.resolve("./src/1-Assets/images/"+ fileName) 
-//     const file= path.join(__dirname, "1-Assets", "images" , fileName) 
-//     response.sendFile(file)
-// })
 
 router.get("/books/images/:imageName", async (request: Request, response: Response,next: NextFunction)=>{
     try{
-        console.log("i am image controller!")
         let imagename= request.params?.imageName
             const file= path.join(__dirname,"..", "1-Assets", "images" , imagename) 
             response.sendFile(file)
@@ -79,13 +69,29 @@ router.get("/books/images/:imageName", async (request: Request, response: Respon
     }
 })
 
+router.get("/genres/", async (request: Request, response: Response,next: NextFunction)=>{
+    try{
+        const genres = await bookLogic.getAllGenreNames()
+        response.json(genres)
+    }catch(err:any){
+        next(err)
+    }
+})
+router.get("/genres/:genreId", async(request: Request, response: Response,next: NextFunction)=>{
+    try{
+        const genreId= +request.params.genreId
+        const genreName= await bookLogic.getOneGenreName(genreId)
+        response.json(genreName)
+    }catch(err:any){
+        next(err)
+    }
+})
 
 // copy - wirkt nicht gut
 // router.get("/books/images/:imageName", async (request: Request, response: Response,next: NextFunction)=>{
 //     try{
-//         console.log("i am image controller!")
 //         let imagename= request.params?.imageName
-//         if(!request.params?.imageName){
+//         if(!request.params.imageName){
 //             imagename="defaultBookForThoseWhoDontHaveImageNameInserted.jpg"
 //             // const file= path.join(__dirname,"..", "1-Assets", "images" , "defaultBookForThoseWhoDontHaveImageNameInserted.jpg") 
 //             const file= path.join(__dirname,"..", "1-Assets", "images" , imagename) 

@@ -1,15 +1,18 @@
 import { createStore } from "redux"
 import BookModel from "../Models/BookModel"
+import GenreModel from "../Models/GenreModel";
 
 export class BookState{
     public books: BookModel[]=[];
+    public genres: GenreModel[]=[];
 }
 
 export enum BookActionTypes{
     FetchAllBooks,
     AddBook,
     UpdateBook,
-    DeleteBook
+    DeleteBook,
+    getAllGenres
 }
 
 export interface BookActions{
@@ -41,6 +44,11 @@ export function BookReducer(currentState= new BookState(), action: BookActions):
         if(indexToDelete>0){
             newState.books.splice(indexToDelete, 1)
         }
+        break
+
+        case BookActionTypes.getAllGenres:
+            newState.genres=action.payload
+            break
    }
 
    return newState

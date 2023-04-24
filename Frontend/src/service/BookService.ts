@@ -3,6 +3,7 @@ import BookModel from "../Models/BookModel";
 import appConfig from "../Utils/AppConfig";
 import { BookActionTypes, BookStore } from "../Redux/BookState";
 import { AuthStore } from "../Redux/AuthState";
+import GenreModel from "../Models/GenreModel";
 
 
 async function getAllBooks(): Promise<BookModel[]> {
@@ -59,11 +60,33 @@ async function deleteBook(id: number): Promise<void> {
     await axios.delete<void>(appConfig.AllBooksURL + id, { headers: { authorization: "Bearer " + AuthStore.getState().token } })
     BookStore.dispatch({type: BookActionTypes.DeleteBook, payload: id})
 }
+async function getAllGenres():Promise<GenreModel[]>{
+    let genres= BookStore.getState().genres
+    if(genres.length===0){
+        const response = await axios.get<GenreModel[]>(appConfig.genresURL)
+        genres= response.data
+        BookStore.dispatch({type : BookActionTypes.getAllGenres, payload: genres})
+    }
+    return genres
+}
+
+async function getOneGenre(id: number):Promise<GenreModel>{
+    let genres = BookStore.getState().genres
+    let index = genres.findIndex(g=> g.genreId ===id)
+    let genre = genres[index]
+    if(index < -1){
+        const response= await axios.get<GenreModel>(appConfig.genresURL+ id)
+        genre= response.data
+    }
+    return genre
+}
 
 export default {
     getAllBooks,
     getOneBook,
     postOneBook,
     updateBook,
-    deleteBook
+    deleteBook,
+    getAllGenres,
+    getOneGenre
 }
