@@ -737,3 +737,18 @@
 
     Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
     24.4.2023, 19:56:54
+
+    [object Object] ---------------------------
+    24.4.2023, 20:13:08
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    24.4.2023, 20:24:35
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    24.4.2023, 20:25:12
+
+    Error: ENOENT: no such file or directory, stat 'D:\User\Desktop\Pessach Ferie\BookStoreWithServer\BackEnd\src\1-Assets\images\undefined' ---------------------------
+    24.4.2023, 20:25:13
+
+    TypeError: Cannot read properties of undefined (reading 'insertId') ---------------------------
+    24.4.2023, 20:26:24

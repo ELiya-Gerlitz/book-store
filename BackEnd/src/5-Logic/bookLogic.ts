@@ -29,7 +29,7 @@ async function getOneBook(bookId:number):Promise<BookModel>{
             WHERE bookId=${bookId}
         `
     const books= await dal.execute(sql)
-    const book= books[0]  // überflüßig?
+    const book= books[0]  // überflüßig? Nein! Im gegenteil!
     return book
 }
 
@@ -39,10 +39,7 @@ async function postOneBook(book:BookModel):Promise<BookModel>{
 
     if(book.image){
         try{
-                // handleFiles(book) no need to delete anything.(!🙄) it is a completely new book added presently.
-            // const pathtoDelete= " ./src/1-Assets/images/" + book.imageName
-            // fs.unlinkSync(pathtoDelete)
-
+            // handleFiles(book) no need to delete anything.(!🙄) it is a completely new book added presently.
             const extension = path.extname(book.image.name)
             book.imageName= uuid() +extension
             console.log("I am in the if statement in before the post query Logic" + book.imageName)
@@ -59,8 +56,9 @@ async function postOneBook(book:BookModel):Promise<BookModel>{
     INSERT INTO books(name, price, stock, imageName, genreId)
     VALUES("${book.name}", ${book.price}, ${book.stock}, "${book.imageName}", "${book.genreId}")
     `
-    const info: OkPacket=  await dal.execute(sql)
-    book.bookId= info.insertId
+    const response: OkPacket = await dal.execute(sql)
+    book.bookId = response.insertId
+    console.log(" I am the added book.bookId"+ book.bookId) //Das wirkt gut ohne zum die arr[0] zurückkehren. Wieso? 🤲🤔
     return book
 }
 

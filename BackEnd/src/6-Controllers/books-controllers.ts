@@ -16,16 +16,17 @@ router.get("/books",writeMethods, async( request: Request, response: Response,ne
     }
 })
 
-// router.get("/books/:bookId", writeMethods,  async(request: Request, response: Response,next: NextFunction)=>{
-//     try{
-//         const bookId= +request.params.bookId
-//         const book= await bookLogic.getOneBook(bookId)
-//         response.json(book)
-//     }catch(err:any){
-//         next(err)
-//     }
-// })
 
+// get single book according to the bookId + get extra field from the genre JOIN
+router.get("/genres/:bookId", async(request: Request, response: Response,next: NextFunction)=>{
+    try{
+        const genreId= +request.params.bookId
+        const genreName= await bookLogic.getOneBookWithExtensions(genreId)
+        response.json(genreName)
+    }catch(err:any){
+        next(err)
+    }
+})
 
 router.post("/books", verifyLoggedIn, async (request: Request, response: Response, next:NextFunction)=>{
     try{
@@ -77,41 +78,5 @@ router.get("/genres/", async (request: Request, response: Response,next: NextFun
         next(err)
     }
 })
-
-// get single book according to the bookId + get extra field from the genre JOIN
-router.get("/genres/:bookId", async(request: Request, response: Response,next: NextFunction)=>{
-    try{
-        const genreId= +request.params.bookId
-        const genreName= await bookLogic.getOneBookWithExtensions(genreId)
-        response.json(genreName)
-    }catch(err:any){
-        next(err)
-    }
-})
-
-// copy - wirkt nicht gut
-// router.get("/books/images/:imageName", async (request: Request, response: Response,next: NextFunction)=>{
-//     try{
-//         let imagename= request.params?.imageName
-//         if(!request.params.imageName){
-//             imagename="defaultBookForThoseWhoDontHaveImageNameInserted.jpg"
-//             // const file= path.join(__dirname,"..", "1-Assets", "images" , "defaultBookForThoseWhoDontHaveImageNameInserted.jpg") 
-//             const file= path.join(__dirname,"..", "1-Assets", "images" , imagename) 
-//             response.sendFile(file)
-//         }else{
-//             const file= path.join(__dirname,"..", "1-Assets", "images" , imagename) 
-//             response.sendFile(file)
-//         }
-
-
-        // const fileName= await bookLogic.getImage(id)
-        // const file= `./src/1-Assets/images/${fileName}`
-    
-        // const file= path.resolve("./src/1-Assets/images/"+ fileName) 
-        // response.sendFile(file)
-//     }catch(err:any){
-//         next(err)
-//     }
-// })
 
 export default router
