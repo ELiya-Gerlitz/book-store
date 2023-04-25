@@ -766,3 +766,21 @@
     Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'genreId = 6
     WHERE bookId= 25' at line 7 ---------------------------
     25.4.2023, 0:34:37
+
+    Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE bookId= 26' at line 8 ---------------------------
+    25.4.2023, 1:41:16
+
+    Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE bookId= 26' at line 8 ---------------------------
+    25.4.2023, 1:42:08
+
+    Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE bookId= 26' at line 8 ---------------------------
+    25.4.2023, 1:45:56
+
+    Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE bookId= 26' at line 8 ---------------------------
+    25.4.2023, 1:45:58
+
+    Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE bookId= 26' at line 8 ---------------------------
+    25.4.2023, 1:45:59
+
+    [object Object] ---------------------------
+    25.4.2023, 3:48:30

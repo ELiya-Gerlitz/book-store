@@ -4,12 +4,14 @@ import "./AddBook.css";
 import BookModel from "../../../Models/BookModel";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import GenreModel from "../../../Models/GenreModel";
 
 function AddBook(): JSX.Element {
     const {register, handleSubmit}= useForm<BookModel>()
     const navigate= useNavigate()
     // const [preview, setPreview] = useState()
     const [selectedImage, setSelectedImage] = useState();
+    const [genre, setGenre] = useState<GenreModel[]>();
 
    
      const send= (data:BookModel)=>{
@@ -21,6 +23,11 @@ function AddBook(): JSX.Element {
             .catch(err=> console.log(err))
     }
 
+    useEffect(()=>{
+        BookService.getAllGenres()
+        .then(genre=>setGenre(genre))
+        .catch(err=>console.log(err))
+    })
     // trial 
 
     // const renderPreview= (e:any) => {
@@ -44,7 +51,10 @@ function AddBook(): JSX.Element {
                 <input type="text" placeholder="book name" {...register("name")}/>
                 <input type="number" placeholder="price" {...register("price")}/>
                 <input type="number" placeholder="stock" {...register("stock")}/>
-                <input type="number" placeholder="genreId" {...register("genreId")}/>
+                <select name="postSelect" {...register("genreId")}>
+                    {genre && genre.map(g=> <option key={g.genreId} value={g.genreId}>{g.genreName}</option> )}
+                </select>
+               
                 {/* <div>
                 <input type="file" accept="image/*"  onChange={renderPreview} {...register("image")}/>  
                 {preview && <div><img src={URL.createObjectURL(preview)} alt="previewImage"/></div>}

@@ -96,10 +96,10 @@ async function putBook(book: BookModel):Promise<BookModel>{
         genreId = ${book.genreId}
     WHERE bookId= ${book.bookId}
     `
-    const info: OkPacket= await dal.execute(sql)
-    if(info.affectedRows===0) throw new ResourceNotFoundErrorModel(book.bookId)
-    // return info[0]
-    return book
+    const updatedInfo: OkPacket= await dal.execute(sql)
+    if(updatedInfo.affectedRows===0) throw new ResourceNotFoundErrorModel(book.bookId)
+    return updatedInfo[0]
+    // return book
 }
 
 async function deleteBook(id: number):Promise<void>{

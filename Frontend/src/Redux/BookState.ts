@@ -4,7 +4,7 @@ import GenreModel from "../Models/GenreModel";
 
 export class BookState{
     public books: BookModel[]=[];
-    public genres: GenreModel[]=[];
+    // public genres: GenreModel[]=[];
 }
 
 export enum BookActionTypes{
@@ -12,7 +12,7 @@ export enum BookActionTypes{
     AddBook,
     UpdateBook,
     DeleteBook,
-    getAllGenres
+    // getAllGenres
 }
 
 export interface BookActions{
@@ -46,9 +46,9 @@ export function BookReducer(currentState= new BookState(), action: BookActions):
         }
         break;
 
-        case BookActionTypes.getAllGenres:
-            newState.genres=action.payload
-            break;
+        // case BookActionTypes.getAllGenres:
+        //     newState.genres = action.payload
+        //     break;
    }
 
    return newState

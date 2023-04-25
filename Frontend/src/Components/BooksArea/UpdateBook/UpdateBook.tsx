@@ -51,7 +51,7 @@ useEffect(()=>{
 const send= (data:BookModel)=>{
     BookService.updateBook(data)
     .then(()=>{
-        alert("successfully altered")
+        // alert("successfully altered")
         navigate("/books")
     })
     .catch((err:any)=>{console.log(err)})
@@ -73,7 +73,10 @@ const send= (data:BookModel)=>{
                         <label htmlFor="stock">stock</label>
                         <input type="number"   {...register("stock")}/>
 
-                        <select {...register("genreId")} required>
+                        <input type="text" hidden  {...register("genreName")}/>
+
+
+                        <select name="updateSelect" {...register("genreId")} required>
                             {genre && genre.map((g)=><option key={g.genreId} value={g.genreId}>{g.genreName}</option>)}
                         </select>
                                                                     

@@ -34,11 +34,11 @@ async function postOneBook(book: BookModel): Promise<void> {
 
     const myForm = new FormData()
     myForm.append("name", book.name)
-    myForm.append("price", book?.price.toString())
-    myForm.append("stock", book?.stock.toString())
-    myForm.append("image", book?.image[0])
-    myForm.append("imageName", book?.imageName)
-    myForm.append("genreId", book?.genreId.toString())
+    myForm.append("price", book.price.toString())
+    myForm.append("stock", book.stock.toString())
+    myForm.append("image", book.image[0])
+    myForm.append("imageName", book.imageName)
+    myForm.append("genreId", book.genreId.toString())
     const response = await axios.post<BookModel>(appConfig.AllBooksURL, myForm, { headers })
     const newBook = response.data
     console.log(newBook)
@@ -52,12 +52,11 @@ async function updateBook(book: BookModel): Promise<void> {
     myForm.append("price", book.price.toString())
     myForm.append("stock", book.stock.toString())
     myForm.append("image", book.image[0])
-    // myForm.append("imageName", book?.imageName)
+    // myForm.append("imageName", book.imageName)
     myForm.append("genreId", book.genreId.toString())
     const response = await axios.put<BookModel>(appConfig.AllBooksURL + book.bookId, myForm, {headers: {authorization: "Bearer " + AuthStore.getState().token } })
     const updatedBook = response.data
     BookStore.dispatch({type: BookActionTypes.UpdateBook, payload: updatedBook})
-
 }
 
 async function deleteBook(id: number): Promise<void> {
@@ -66,12 +65,12 @@ async function deleteBook(id: number): Promise<void> {
     BookStore.dispatch({type: BookActionTypes.DeleteBook, payload: id})
 }
 async function getAllGenres():Promise<GenreModel[]>{
-    let genres= BookStore.getState().genres
-    if(genres.length===0){
+    // let genres= BookStore.getState().genres
+    // if(genres.length===0){
         const response = await axios.get<GenreModel[]>(appConfig.genresURL)
-        genres= response.data
-        BookStore.dispatch({type : BookActionTypes.getAllGenres, payload: genres})
-    }
+        const genres= response.data
+        // BookStore.dispatch({type : BookActionTypes.getAllGenres, payload: genres})
+    // }
     return genres
 }
 
