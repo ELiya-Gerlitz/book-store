@@ -27,9 +27,9 @@ async function getOneBookWithExtensions(bookId :number):Promise<BookModel>{
         SELECT books.* , genre.genreName
         FROM genre Join books
         ON genre.genreId = books.genreId
-        WHERE books.bookId = ${bookId}
+        WHERE books.bookId = ?
     `
-    const info : OkPacket = await dal.execute(sql)
+    const info : OkPacket = await dal.execute(sql, bookId)
     if(!info[0]) throw new ResourceNotFoundErrorModel(bookId)
     return info[0]  // überflüßig? Nein! Im gegenteil!🤠
 }
@@ -55,9 +55,9 @@ async function postOneBook(book:BookModel):Promise<BookModel>{
     const sql=
     `
     INSERT INTO books(name, price, stock, imageName, genreId)
-    VALUES("${book.name}", ${book.price}, ${book.stock}, "${book.imageName}", "${book.genreId}")
+    VALUES(?, ?, ?, ?, ?)
     `
-    const response: OkPacket = await dal.execute(sql)
+    const response: OkPacket = await dal.execute(sql, [book.name, book.price, book.stock, book.imageName, book.genreId ])
     book.bookId = response.insertId
     console.log(" I am the added book.bookId"+ book.bookId) //Das wirkt gut ohne zum die arr[0] zurückkehren. Wieso? 🤲🤔
     return book
@@ -89,14 +89,14 @@ async function putBook(book: BookModel):Promise<BookModel>{
     const sql=`
     UPDATE books
     SET 
-        name = "${book.name}",
-        price = ${book.price},
-        stock = ${book.stock},
-        imageName = "${book.imageName}",
-        genreId = ${book.genreId}
-    WHERE bookId= ${book.bookId}
+        name = ?,
+        price = ?,
+        stock = ?,
+        imageName = ?,
+        genreId = ?
+    WHERE bookId= ?
     `
-    const updatedInfo: OkPacket= await dal.execute(sql)
+    const updatedInfo: OkPacket= await dal.execute(sql, [book.name, book.price, book.stock, book.imageName, book.genreId, book.bookId])
     if(updatedInfo.affectedRows===0) throw new ResourceNotFoundErrorModel(book.bookId)
     return updatedInfo[0]
     // return book
@@ -106,13 +106,13 @@ async function deleteBook(id: number):Promise<void>{
 
     const sqlForDeletingImage=`
     SELECT * FROM books
-    WHERE bookId= ${id}
+    WHERE bookId= ?
     `
-    const bookarr :OkPacket= await dal.execute(sqlForDeletingImage)
-    const book= bookarr[0]
+    const bookarr :OkPacket = await dal.execute(sqlForDeletingImage, [id])
+    const book = bookarr[0]
     if(!book) throw new ResourceNotFoundErrorModel(id)
 
-    //     // Delete it:
+       // Delete it:
     try{
         const path= "./src/1-Assets/images/" + book.imageName
         fs.unlinkSync(path);
@@ -122,9 +122,9 @@ async function deleteBook(id: number):Promise<void>{
 
     const sql=`
     DELETE FROM books
-    WHERE bookId= ${id}
+    WHERE bookId= ?
     `
-    const info :OkPacket= await dal.execute(sql)
+    const info :OkPacket= await dal.execute(sql, [id])
     if(info.affectedRows===0) throw new ResourceNotFoundErrorModel(id)
 }
 
@@ -140,9 +140,9 @@ async function getAllGenres():Promise<GenreModel[]>{
 async function getOneGenre(id: number):Promise<GenreModel>{
     const sql=`
     SELECT * FROM genre
-    WHERE genreId=${id}
+    WHERE genreId = ?
     `
-    const genreNames : OkPacket = await dal.execute(sql)
+    const genreNames : OkPacket = await dal.execute(sql, [id])
     const genreName = genreNames[0]
     if(!genreName) throw new ResourceNotFoundErrorModel(id)
     return genreName
@@ -155,5 +155,5 @@ export default {
     putBook,
     deleteBook,
     getAllGenres,
-    getOneGenre,
+    // getOneGenre,
 }

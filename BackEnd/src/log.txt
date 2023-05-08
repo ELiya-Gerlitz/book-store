@@ -829,3 +829,6 @@
 
     [object Object] ---------------------------
     9.5.2023, 2:18:20
+
+    Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE bookId= 40' at line 8 ---------------------------
+    9.5.2023, 2:41:13
