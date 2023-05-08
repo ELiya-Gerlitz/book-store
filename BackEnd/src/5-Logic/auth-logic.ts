@@ -15,19 +15,19 @@ async function register(user:UserModel):Promise<string>{
     // check whether userName is already taken.
     const sql=`
         SELECT * FROM users
-        WHERE username= "${user.username}"
+        WHERE username= ?
     `
 
-    const usernameTaken  = await dal.execute(sql) //das (OkPacket) wirk nicht mit SELECT!!!
+    const usernameTaken  = await dal.execute(sql, [user.username]) //das (OkPacket) wirk nicht mit SELECT!!!
     if(usernameTaken.length > 0) throw new ValidationErrorModel("username is already in use!") 
 
 
     // save the new user in the DB
     const sql2save=`
         INSERT INTO users(firstName, lastName, username, password)
-        VALUES ("${user.firstName}", "${user.lastName}", "${user.username}", "${user.password}") 
+        VALUES (?, ?, ?, ?) 
     `
-    const info: OkPacket= await dal.execute(sql2save)
+    const info: OkPacket= await dal.execute(sql2save, [user.firstName, user.lastName, user.username, user.password])
     user.userId=info.insertId
 
     const token= await cyber.createToken(user)
@@ -42,9 +42,9 @@ async function login(credentials: CredentialsModel):Promise<string>{
      // get all users and see whether the userName && password exist.
      const sql=`
      SELECT * FROM users
-     WHERE username = "${credentials.username}" AND password = "${credentials.password}";
+     WHERE username = ? AND password = ?;
      `
-     const passwordUsernameExist = await dal.execute(sql)
+     const passwordUsernameExist = await dal.execute(sql, [credentials.username, credentials.password])
      console.log(passwordUsernameExist)
      if(passwordUsernameExist.length <= 0) throw new ValidationErrorModel("Please register!")
 
