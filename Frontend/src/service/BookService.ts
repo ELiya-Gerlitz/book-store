@@ -41,6 +41,7 @@ async function postOneBook(book: BookModel): Promise<void> {
     myForm.append("genreId", book.genreId.toString())
     const response = await axios.post<BookModel>(appConfig.AllBooksURL, myForm, { headers })
     const newBook = response.data
+    newBook.genreName = book.genreName
     console.log(newBook)
     BookStore.dispatch({type: BookActionTypes.AddBook, payload: newBook})
 }

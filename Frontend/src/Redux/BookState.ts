@@ -54,4 +54,4 @@ export function BookReducer(currentState= new BookState(), action: BookActions):
    return newState
 }
 
-export const BookStore= createStore(BookReducer)
+export const BookStore = createStore(BookReducer)

@@ -12,7 +12,7 @@ import GenreModel from "../4-Models/GenreModel";
 // import handleFiles from "../2-Utils/handleFiles";
 
 
-async function getAllBooks():Promise<BookModel[]>{
+async function getAllBooksWithExtension():Promise<BookModel[]>{
     const sql=`
     SELECT b.* , g.genreName
     FROM books as b JOIN genre as g
@@ -149,7 +149,7 @@ async function getOneGenre(id: number):Promise<GenreModel>{
 }
 
 export default {
-    getAllBooks,
+    getAllBooksWithExtension,
     getOneBookWithExtensions,
     postOneBook,
     putBook,

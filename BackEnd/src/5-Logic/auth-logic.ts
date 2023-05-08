@@ -17,9 +17,10 @@ async function register(user:UserModel):Promise<string>{
         SELECT * FROM users
         WHERE username= "${user.username}"
     `
-    const usernameTaken : OkPacket= await dal.execute(sql)
 
-    if(usernameTaken.affectedRows>0) throw new ValidationErrorModel("username is already in use!")
+    const usernameTaken  = await dal.execute(sql) //das (OkPacket) wirk nicht mit SELECT!!!
+    if(usernameTaken.length > 0) throw new ValidationErrorModel("username is already in use!") 
+
 
     // save the new user in the DB
     const sql2save=`

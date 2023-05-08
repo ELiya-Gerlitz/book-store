@@ -9,7 +9,7 @@ const router= express.Router()
 
 router.get("/books",writeMethods, async( request: Request, response: Response,next: NextFunction)=>{
     try{
-        const books= await bookLogic.getAllBooks()
+        const books= await bookLogic.getAllBooksWithExtension()
         response.json(books)
     }catch(err:any){
         next(err)

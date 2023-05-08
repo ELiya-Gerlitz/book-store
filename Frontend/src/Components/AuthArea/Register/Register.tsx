@@ -3,15 +3,21 @@ import "./Register.css";
 import authService from "../../../service/authService";
 import UserModel from "../../../Models/UserModel";
 import { useNavigate } from "react-router-dom";
+import { AuthStore } from "../../../Redux/AuthState";
 
 function Register(): JSX.Element {
     const { handleSubmit, register } = useForm<UserModel>()
     const navigate = useNavigate();
 
     const send = (data: UserModel) => {
-        authService.register(data)
+        if(AuthStore.getState().user.username = data.username){
+            alert("username is already taken!")
+            return
+        }else{
+            authService.register(data)
             .then(() => { console.log("successfully logged in"); navigate("/books") })
             .catch(err => console.log(err))
+        }
     }
 
 

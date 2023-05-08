@@ -9,6 +9,7 @@ class BookModel{
     public image: UploadedFile
     public imageName: string
     public genreId: number
+    
     constructor(book:BookModel){
         this.bookId=book.bookId
         this.name= book.name

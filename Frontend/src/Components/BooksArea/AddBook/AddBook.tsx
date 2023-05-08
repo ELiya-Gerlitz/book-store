@@ -12,9 +12,17 @@ function AddBook(): JSX.Element {
     // const [preview, setPreview] = useState()
     const [selectedImage, setSelectedImage] = useState();
     const [genre, setGenre] = useState<GenreModel[]>();
-
+    const [svalue, setSvalue] = useState<number>();
+    // const [text, setText] = useState<string>();
    
+
+// const handleSelectChange = (e : any)=>{ //wirkt nicht...
+//     setSvalue(e.target)
+//     console.log("target: "+ svalue)
+// }
+
      const send= (data:BookModel)=>{
+            data.genreName = "thriller"
             BookService.postOneBook(data)
             .then(()=>{
                 console.log("book successfully added!")
@@ -44,6 +52,7 @@ function AddBook(): JSX.Element {
         }
       };
 
+
     return (
         <div className="AddBook Box">
 			i am add book
@@ -59,17 +68,14 @@ function AddBook(): JSX.Element {
                 <input type="file" accept="image/*"  onChange={renderPreview} {...register("image")}/>  
                 {preview && <div><img src={URL.createObjectURL(preview)} alt="previewImage"/></div>}
                 </div> */}
-
-
-                {/*  */}
+                
                 <div >
           <input accept="image/*" type="file" onChange={imageChange} {...register("image")}/>
 
           {/* {selectedImage &&  (<div ><p>{URL.createObjectURL(selectedImage)}</p></div>)}    // This (URL.createObjectURL) sets it as a url- string, rather than a File... */}
           {selectedImage &&  <div ><img src={URL.createObjectURL(selectedImage)} alt="PreviewImage"/></div>}
         </div>
-                {/*  */}
-
+            
                 <button>add Book</button>
             </form>
         </div>
