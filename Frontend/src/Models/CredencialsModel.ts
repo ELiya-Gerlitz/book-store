@@ -1,6 +1,6 @@
 class CredentialsModel{
     public username: string
-    public password: number
+    public password: string
 
     public static usernameValidation={
         required:{value: true, message: "username required!"},

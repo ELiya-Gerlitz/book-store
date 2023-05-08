@@ -36,18 +36,17 @@ async function register(user:UserModel):Promise<string>{
 
 async function login(credentials: CredentialsModel):Promise<string>{
 
-    const err= credentials.validate()
+    const err = credentials.validate()
     if(err) throw new ValidationErrorModel(err)
-
 
      // get all users and see whether the userName && password exist.
      const sql=`
      SELECT * FROM users
-     WHERE username = "credentials.username" AND password = "credentials.password";
+     WHERE username = "${credentials.username}" AND password = "${credentials.password}";
      `
-     const passwordUsernameExist= await dal.execute(sql)
+     const passwordUsernameExist = await dal.execute(sql)
      console.log(passwordUsernameExist)
-     if(!passwordUsernameExist) throw new ValidationErrorModel("Please register!")
+     if(passwordUsernameExist.length <= 0) throw new ValidationErrorModel("Please register!")
 
     const token= cyber.createToken(passwordUsernameExist)
     return token

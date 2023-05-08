@@ -14,7 +14,7 @@ class CredentialsModel{
     })
 
     public validate():string{
-        const result= CredentialsModel.validationScheme.validate(this)
+        const result = CredentialsModel.validationScheme.validate(this)
         return result.error?.message
     }
 }

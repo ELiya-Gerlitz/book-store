@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./AuthMenu.css";
 import { AuthStore } from "../../../Redux/AuthState";
 import UserModel from "../../../Models/UserModel";
@@ -17,11 +17,15 @@ function AuthMenu(): JSX.Element {
         return ()=> unsubscribe()
     },[])
     
+    const handleLogout = () => {
+
+    }
 
     return (
         <div className="AuthMenu">
-
-			
+            <NavLink to={"/books/auth/register"}>register </NavLink> |   
+            <NavLink to={"/books/auth/login"}> login </NavLink> |   
+            <NavLink to={"#"} onClick={handleLogout}> logout</NavLink>
         </div>
     );
 }

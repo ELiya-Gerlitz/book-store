@@ -10,14 +10,13 @@ function Register(): JSX.Element {
     const navigate = useNavigate();
 
     const send = (data: UserModel) => {
-        if(AuthStore.getState().user.username = data.username){
-            alert("username is already taken!")
-            return
-        }else{
-            authService.register(data)
-            .then(() => { console.log("successfully logged in"); navigate("/books") })
-            .catch(err => console.log(err))
-        }
+            if(AuthStore.getState().token){
+                alert("you are already logged in!")
+            }else{
+                authService.register(data)
+                .then(() => { console.log("successfully logged in"); navigate("/books") })
+                .catch(err => console.log(err))
+            }
     }
 
 
